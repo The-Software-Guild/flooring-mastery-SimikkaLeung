@@ -1,0 +1,3 @@
+OrderNumber,CustomerName,State,TaxRate,ProductType,Area,CostPerSquareFoot,LaborCostPerSquareFoot,MaterialCost,LaborCost,Tax,Total
+4,Sim Leung,CA,25.00,Laminate,77,1.75,2.10,134.75,161.70,74.11,370.56
+5,Evan Tsai,KY,6.00,Wood,40,5.15,4.75,206.00,190.00,23.76,419.76
