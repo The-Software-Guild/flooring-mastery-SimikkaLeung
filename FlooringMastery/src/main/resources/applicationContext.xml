@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/task 
+    http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+    <!-- Bean definitions go here -->
+     <!-- <bean id="keyboard" class="java.util.Scanner">
+    	<constructor-arg value="System.in" />
+    </bean> -->
+    <bean id="io" class="com.example.demo.view.UserIOConsoleImpl" />
+   	<bean id="orderDao" class="com.example.demo.dao.OrderDaoImpl" />
+   	<bean id="productDao" class="com.example.demo.dao.ProductDaoImpl" />
+	<bean id="stateDao" class="com.example.demo.dao.StateDaoImpl" />
+    <bean id="myView" class="com.example.demo.view.OrderingView">
+        <constructor-arg ref="io" />
+       <!-- <constructor-arg ref="keyboard" /> -->
+    </bean>
+    <bean id="myService" class="com.example.demo.service.OrderingServiceLayerImpl">
+        <constructor-arg ref="orderDao" />
+        <constructor-arg ref="productDao" />
+        <constructor-arg ref="stateDao" />
+    </bean>    
+    <bean id="controller" class="com.example.demo.controller.OrderingController">
+		<constructor-arg ref="myService" />
+        <constructor-arg ref="myView" />
+        <!-- <constructor-arg ref="keyboard" /> -->
+    </bean> 
+</beans>
